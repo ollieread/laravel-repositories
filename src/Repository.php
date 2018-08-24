@@ -7,6 +7,13 @@ use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\Expression;
 
+/**
+ * Repository
+ *
+ * The progenitor of all repository kind.
+ * 
+ * @package Ollieread\Repositories
+ */
 abstract class Repository
 {
     /**
