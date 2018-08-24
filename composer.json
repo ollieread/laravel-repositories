@@ -1,0 +1,31 @@
+{
+    "name": "ollieread/laravel-repositories",
+    "type": "library",
+    "description": "A package that exists to show you that repositories don't have to be over complicated",
+    "license": "MIT",
+    "version": "dev-master",
+    "authors": [
+        {
+            "name": "Ollie Read",
+            "email": "me@ollieread.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "laravel/framework": "^5.6"
+    },
+    "autoload": {
+        "classmap": [],
+        "psr-4": {
+            "Ollieread\\Repositories\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+            ],
+            "aliases": {
+            }
+        }
+    }
+}
