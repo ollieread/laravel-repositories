@@ -16,7 +16,7 @@ Before we get into the specifics, here's a quick FAQ.
 The repository pattern exists to provide a level of abstraction between database/datasource interactions and the logic of the codebase.
 
 ### Doesn't Eloquent already cover this?
-Yes and No. Eloquent uses the Active Record pattern and as such, suffers a bit of a single concern crisis. Eloquent can do everything that you's
+Yes and No. Eloquent uses the Active Record pattern and as such, suffers a bit of a single concern crisis. Eloquent can do everything that you'd
 typically do in a repository, but that also means that there's no one place storing your queries. They're everywhere.
 
 ### What's wrong with queries everywhere?
@@ -57,7 +57,7 @@ Super simple and super fun. Run the following command in your terminal.
 There is none just yet, but there may be in the future.
 
 ## Usage
-To use this package, simple create yourself a repository, lets say `App\Repositories\PostRepository` and extend the base repository;
+To use this package, simply create yourself a repository, lets say `App\Repositories\PostRepository` and extend the base repository;
 
     Ollieread\Repositories\Repository
 
@@ -92,6 +92,8 @@ class PostRepository extends Repository
 ```
 
 Now you have access to all that the base repository provides.
+
+Generally you'd have a repository for each model. By all means only use it for a few, but generally you should be keeping your codebase consistent.
 
 ### Getting all models
 
