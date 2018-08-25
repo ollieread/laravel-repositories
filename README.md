@@ -118,6 +118,36 @@ The above is the same as `Model::paginate()` except with the where clause array.
     
 The above is the same as `Model::simplePaginate()` except with the where clause array.
 
+## Queries
+If you want to create your own queries you can a few options.
+
+### Just a query object
+
+    Repository::query()
+
+This will return a fresh Eloquent query builder for you. Note, this won't run any currently queued criteria.
+
+### A query object with some simple where's
+
+    Repository::builderQuery(array $arguments = [])
+
+Pass in an array of `column => value` pairs to add simple where clauses. If the value is a closure, it will be passed the query object,
+and if the value is an array, it'll run a `whereIn()`. All of the default helper methods use this, so that arguments structure applies to those too.
+
+### Get my own query instance
+If you want your own query instance, you can simple use the following;
+
+    Repository::make(array $attributes = [])
+
+This is the same as `$model = new Model($attributes)`. From here you can call one of the many methods to get a new query.
+
+    $model->newQuery()
+    $model->newModelQuery()
+    $model->newQueryWithoutRelationships()
+
+You could even just start building the query from the `Model` object, but that's just messy!
+
+
 ## Criteria
 Criteria are a way of adding extra..well..criteria to queries without having to define a load of methods inside your repository.
 All criteria should extend the base class;
