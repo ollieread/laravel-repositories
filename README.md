@@ -61,10 +61,10 @@ To use this package, simply create yourself a repository, lets say `App\Reposito
 
     Ollieread\Repositories\Repository
 
-Next you define your `model()` method to return the FQN for the model this repository represents.
+Next you define your `model()` method to return the FQNS for the model this repository represents.
 
 ```php
-protected function mode(): string
+protected function model(): string
 {
     return Post::class;
 }
@@ -99,12 +99,11 @@ Generally you'd have a repository for each model. By all means only use it for a
 
     Repository::get(array $arguments = []): Collection
 
-This is the same as `Model::get()` or `Model::all()`, except that you can provide an array of `column => value` entries for a simple `=`
-where clause.
+This is the same as `Model::get()` or `Model::all()`, except that you can provide an array of `column => value` entries for a simple `=` where clause.
 
 ### Getting first model
    
-    Repository::first(array $arugments = []): ?Model
+    Repository::first(array $arguments = []): ?Model
     
 This is the same as `Model::first()` but just like above, you can pass in an array for a where clause.
 
@@ -131,8 +130,8 @@ This will return a fresh Eloquent query builder for you. Note, this won't run an
 
     Repository::builderQuery(array $arguments = [])
 
-Pass in an array of `column => value` pairs to add simple where clauses. If the value is a closure, it will be passed the query object,
-and if the value is an array, it'll run a `whereIn()`. All of the default helper methods use this, so that arguments structure applies to those too.
+Pass in an array of `column => value` pairs to add simple where clauses. If the value is a closure, it will be passed the query object, and if the value is an array, it'll run a `whereIn()`. All of the default helper methods use this, so that arguments structure applies to those too.
+
 This will also run any queued criteria.
 
 ### Get my own query instance
@@ -150,6 +149,7 @@ You could even just start building the query from the `Model` object, but that's
 
 ## Criteria
 Criteria are a way of adding extra..well..criteria to queries without having to define a load of methods inside your repository.
+
 All criteria should extend the base class;
 
     Ollieread\Repositories\Criteria
@@ -190,12 +190,11 @@ If you want to enable criteria again you can do this;
 $repository->useCriteria()->paginate([], 20);
 ```
 
-
 Generally, you'd use criteria in the situation where you want to add a clause, perhaps just a where, that's something other than a `=` clause.
+
 The criteria can be as generic or as specific as you want, there are no rules. You could use the examples in the FAQ above if you really wished.
-Try to remember that although the criteria has knowledge of the database, you shouldn't need knowledge of it to use the criteria. An example
-of this would be something like `new For('user', $user)`. Here you have to know about the user relationship, and its name. A better approach
-would be `new ForUser($user)`.
+
+Try to remember that although the criteria has knowledge of the database, you shouldn't need knowledge of it to use the criteria. An example of this would be something like `new For('user', $user)`. Here you have to know about the user relationship, and its name. A better approach would be `new ForUser($user)`.
 
 There are a couple of default criteria provided to give you an example.
 
