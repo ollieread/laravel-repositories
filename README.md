@@ -104,7 +104,7 @@ where clause.
 
 ### Getting first model
    
-    Repository::first(array $arugments = []): ?Model
+    Repository::first(array $arguments = []): ?Model
     
 This is the same as `Model::first()` but just like above, you can pass in an array for a where clause.
 
