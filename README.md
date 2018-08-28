@@ -61,7 +61,7 @@ To use this package, simply create yourself a repository, lets say `App\Reposito
 
     Ollieread\Repositories\Repository
 
-Next you define your `model()` method to return the FQNS for the model this repository represents.
+Next you define your `model()` method to return the FQN for the model this repository represents.
 
 ```php
 protected function model(): string
