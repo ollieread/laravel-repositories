@@ -87,7 +87,7 @@ abstract class Repository
      */
     public function withCriteria(Criteria ...$criteria): self
     {
-        $this->criteria[] = $criteria;
+        $this->criteria = array_merge($this->criteria, $criteria);
         return $this;
     }
 
